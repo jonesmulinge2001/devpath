@@ -1,0 +1,73 @@
+<nav class="h-[60px] bg-[#111113] border-b border-white/10 flex items-center px-6">
+
+    <!-- Left Spacer / Logo Slot -->
+    <div class="flex-1">
+      
+    </div>
+  
+  
+    <!-- Center Search -->
+    <div class="flex justify-center flex-[2]">
+      <div
+        class="w-full max-w-[650px] flex items-center gap-2.5 h-[42px] px-4 rounded-xl transition-all"
+        [ngClass]="{
+        'border border-white/10 bg-[#1c1c1f]': !isSearchFocused,
+        'border border-white/20 bg-[#202024] shadow-md': isSearchFocused
+        }"
+      >
+  
+        <span
+        class="material-icons text-[#777]"
+        >
+          search
+        </span>
+  
+        <input
+          type="text"
+          placeholder="Search lessons, projects, mentors..."
+          class="flex-1 bg-transparent outline-none text-sm text-white placeholder-[#666]"
+          (focus)="onSearchFocus()"
+          (blur)="onSearchBlur()"
+        />
+  
+        <kbd class="px-2 py-1 rounded-md bg-[#2a2a2e] text-xs text-[#888]">
+          ⌘ K
+        </kbd>
+  
+      </div>
+    </div>
+  
+  
+    <!-- Right Actions -->
+    <div class="flex-1 flex justify-end items-center gap-3">
+  
+      <button class="flex items-center gap-2 px-4 h-10 rounded-full text-white bg-[#1e1e22] border border-white/10">
+        <span>🔥</span>
+        <span>{{ streak }}</span>
+      </button>
+  
+      <button class="flex items-center gap-2 px-4 h-10 rounded-full text-white bg-[#1e1e22] border border-white/10">
+        <span class="material-icons text-violet-400 text-base">
+          auto_awesome
+        </span>
+        <span>{{ points | number }}</span>
+      </button>
+  
+      <button class="relative w-10 h-10 rounded-full hover:bg-white/5">
+        <span class="material-icons text-zinc-300">
+          notifications
+        </span>
+  
+        <span
+          *ngIf="hasNotification"
+          class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full">
+        </span>
+      </button>
+  
+      <button class="w-10 h-10 rounded-full bg-purple-600 text-white font-semibold">
+        {{ userInitials }}
+      </button>
+  
+    </div>
+  
+  </nav>

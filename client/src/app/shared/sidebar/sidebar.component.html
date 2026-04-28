@@ -1,0 +1,42 @@
+<aside class="w-64 min-h-full bg-[#0b0f19] text-gray-300 p-4 flex flex-col">
+
+    <!-- Logo -->
+    <a routerLink="/">
+        <div class="flex items-center gap-2 mb-8 cursor-pointer">
+            <div class="w-8 h-8 rounded bg-purple-600">
+            </div>
+            <span class="font-bold text-white text-lg">DevPath</span>
+        </div>
+    </a>
+
+
+    <!-- Navigation -->
+    <div class="flex-1 overflow-y-auto">
+
+        <div *ngFor="let section of navSections" class="mb-6">
+
+            <!-- Section Title -->
+            <p class="text-xs text-gray-500 mb-3 tracking-wider">
+                {{ section.title }}
+            </p>
+
+            <!-- Items -->
+            <div class="space-y-1">
+                <a *ngFor="let item of section.items" [routerLink]="item.link"
+                    routerLinkActive="bg-[#1c2233] text-white"
+                    class="flex items-center gap-3 px-3 py-2 rounded-lg hover:bg-[#161b2a] transition">
+                    <span class="material-icons text-sm">
+                        {{ item.icon }}
+                    </span>
+
+                    <span class="text-sm">
+                        {{ item.label }}
+                    </span>
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</aside>
